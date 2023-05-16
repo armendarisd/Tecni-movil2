@@ -72,26 +72,26 @@ class _RegisterState extends State<Register> {
                   MyTextField(
                     label: "Nombre",
                     focusNode: _nameFocusNode,
-                    textEditingController: _nameController,
+                    controller: _nameController,
                   ),
                   Container(height: responsiveHeight(size: 20)),
                   MyTextField(
                     label: "Correo",
                     focusNode: _emailFocusNode,
-                    textEditingController: _emailController,
+                    controller: _emailController,
                   ),
                   Container(height: responsiveHeight(size: 20)),
                   MyTextField(
                     label: "Contraseña",
                     focusNode: _passwordFocusNode,
-                    textEditingController: _passwordController,
+                    controller: _passwordController,
                     obscureText: true,
                   ),
                   Container(height: responsiveHeight(size: 20)),
                   MyTextField(
                     label: "Confirmar Contraseña",
                     focusNode: _confirmPasswordFocusNode,
-                    textEditingController: _confirmPasswordController,
+                    controller: _confirmPasswordController,
                     obscureText: true,
                   ),
                   Container(

@@ -116,14 +116,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 ),
                 MyTextField(
                   label: "Telefono",
-                  textEditingController: _phoneController,
+                  controller: _phoneController,
                 ),
                 Container(
                   height: responsiveHeight(size: 15),
                 ),
                 MyTextField(
                   label: "Direccion",
-                  textEditingController: _addressController,
+                  controller: _addressController,
                 ),
                 Container(
                   height: responsiveHeight(size: 15),
@@ -131,7 +131,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 MyTextField(
                   label: "Fecha",
                   keepLabelOnTop: true,
-                  textEditingController: _dateController,
+                  controller: _dateController,
                   suffixIcon: Icon(Icons.calendar_today),
                   suffixIconOnPressed: () => _selectDateTime(),
                   readOnly: true,
@@ -143,7 +143,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 MyTextField(
                   label: "Hora",
                   keepLabelOnTop: true,
-                  textEditingController: _dateController,
+                  controller: _dateController,
                   suffixIcon: Icon(Icons.watch),
                   hintText: DateFormat('HH:MM').format(_selectedDate),
                   suffixIconOnPressed: () => {_selectHour()},

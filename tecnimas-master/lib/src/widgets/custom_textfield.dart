@@ -3,7 +3,7 @@ import '../utils/responsive.dart';
 
 class MyTextField extends StatefulWidget {
   final FocusNode? focusNode;
-  final TextEditingController? textEditingController;
+  final TextEditingController? controller;
   final Color? backgroundColor;
   final String label;
   final bool? primary;
@@ -21,7 +21,7 @@ class MyTextField extends StatefulWidget {
 
   MyTextField({
     this.focusNode,
-    this.textEditingController,
+    this.controller,
     this.backgroundColor,
     this.label = "",
     this.primary = true,
@@ -52,7 +52,7 @@ class _MyTextFieldState extends State<MyTextField> {
         readOnly: widget.readOnly,
         obscureText: widget.obscureText,
         focusNode: widget.focusNode,
-        controller: widget.textEditingController,
+        controller: widget.controller,
         decoration: InputDecoration(
           filled: true,
           fillColor: widget.backgroundColor ?? Color(0xFFEEE5E9),

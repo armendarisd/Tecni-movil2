@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tecnimas/src/screen/register_screen.dart';
 
 import 'package:tecnimas/src/utils/responsive.dart';
@@ -19,6 +20,26 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void initState() {
+    getinitialPass() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      var email = await prefs.getString('email');
+
+      var pass = await prefs.getString('pass');
+
+      if (pass != null && email != null) {
+        setState(() {
+          _emailController.text = email;
+          _passwordController.text = pass;
+        });
+      }
+    }
+
+    getinitialPass();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,14 +84,36 @@ class _LoginState extends State<Login> {
                   MyTextField(
                     label: "Correo",
                     focusNode: _emailFocusNode,
-                    textEditingController: _emailController,
+                    controller: _emailController,
                   ),
                   Container(height: responsiveHeight(size: 30)),
                   MyTextField(
                     obscureText: true,
                     label: "Contraseña",
                     focusNode: _passwordFocusNode,
-                    textEditingController: _passwordController,
+                    controller: _passwordController,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Recordar contraseña",
+                        style: GoogleFonts.lato(
+                          fontSize: 16,
+                          color: (Color(0xFF413c58)),
+                        ),
+                      ),
+                      Checkbox(
+                        checkColor: Colors.white,
+                        activeColor: Color(0xFF413c58),
+                        value: _authController.rememberPass,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            _authController.changeCheck(value);
+                          });
+                        },
+                      ),
+                    ],
                   ),
                   Container(height: responsiveHeight(size: 30)),
                   Container(

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tecnimas/src/screen/home_screen.dart';
 import 'package:tecnimas/src/screen/login_screen.dart';
 
@@ -8,6 +9,8 @@ class AuthController extends GetxController {
   var displayName = '';
 
   FirebaseAuth auth = FirebaseAuth.instance;
+
+  var rememberPass = false;
 
   User? get userProfile => auth.currentUser;
 
@@ -38,6 +41,10 @@ class AuthController extends GetxController {
     }
   }
 
+  void changeCheck(value) {
+    rememberPass = value;
+  }
+
   void signIn(String email, String password) async {
     try {
       await auth
@@ -45,7 +52,18 @@ class AuthController extends GetxController {
           .then((value) => displayName = userProfile!.displayName!);
 
       auth.currentUser!.updateDisplayName(displayName);
-      Get.offAll(() => Home());
+
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+
+      if (rememberPass) {
+        await prefs.setString('email', email);
+        await prefs.setString('pass', password);
+      } else {
+        await prefs.remove('email');
+        await prefs.remove('pass');
+      }
+
+      Get.offAll(() => const Home());
     } on FirebaseAuthException catch (e) {
       String title = e.code.replaceAll(RegExp('-'), ' ').capitalize!;
 

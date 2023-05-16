@@ -16,9 +16,13 @@ class ServicesController extends GetxController {
     super.onInit();
     collectionReference = firebaseFirestore.collection("orders");
 
-    if (_authController.auth.currentUser != null) {
-      orders.bindStream(getOrders(_authController.auth.currentUser!.uid));
-    }
+    _authController.auth.userChanges().listen((user) {
+      if (user != null) {
+        orders.bindStream(getOrders(user.uid));
+      } else {
+        orders.value = [];
+      }
+    });
   }
 
   final _authController = Get.find<AuthController>();
