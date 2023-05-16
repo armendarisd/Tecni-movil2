@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "953699033687",
+    "project_id": "tecnimas-2e112",
+    "storage_bucket": "tecnimas-2e112.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953699033687:android:0d89dff6a13d642da47912",
+        "android_client_info": {
+          "package_name": "com.example.tecnimas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "953699033687-4r9i83gjsoo2l2jj68m5us7aeq8b7kgh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoq7STieU1A5dUWC0dm9941Aqa7JqdH_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "953699033687-4r9i83gjsoo2l2jj68m5us7aeq8b7kgh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953699033687:android:fe4934bace457c01a47912",
+        "android_client_info": {
+          "package_name": "com.example.tecnimas_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "953699033687-4r9i83gjsoo2l2jj68m5us7aeq8b7kgh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoq7STieU1A5dUWC0dm9941Aqa7JqdH_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "953699033687-4r9i83gjsoo2l2jj68m5us7aeq8b7kgh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
